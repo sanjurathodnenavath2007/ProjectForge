@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pf-bg: #f8fafc;
+  --pf-bg-soft: #f1f5f9;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--pf-bg);
+  color: #0f172a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
+
+@layer components {
+  .pf-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .pf-card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300;
+  }
+  .pf-card-hover {
+    @apply hover:shadow-xl hover:shadow-slate-200/60 hover:-translate-y-1;
+  }
+  .pf-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .pf-btn-primary {
+    @apply pf-btn bg-primary-600 text-white hover:bg-primary-700 active:scale-[0.97] shadow-sm shadow-primary-600/20;
+  }
+  .pf-btn-secondary {
+    @apply pf-btn bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 active:scale-[0.97];
+  }
+  .pf-btn-ghost {
+    @apply pf-btn text-slate-600 hover:bg-slate-100 active:scale-[0.97];
+  }
+  .pf-input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 transition-colors focus:border-primary-400 focus:ring-4 focus:ring-primary-500/10 focus:outline-none;
+  }
+  .pf-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+  .pf-section-title {
+    @apply font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+  }
+}
+
+/* Gradient text utility */
+.pf-gradient-text {
+  background: linear-gradient(135deg, #1c63f1 0%, #10b984 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pf-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.pf-hero-glow {
+  background: radial-gradient(circle at 30% 20%, rgba(28, 99, 241, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(16, 185, 132, 0.12), transparent 50%);
+}
+
+/* Shimmer skeleton */
+.pf-skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
